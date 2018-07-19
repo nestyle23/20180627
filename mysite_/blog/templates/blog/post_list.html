@@ -1,27 +1,25 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 {% block content %}
-	<table class="table">
-		<tr>
-			<th>글번호</th>	
-			<th>제목</th>	
-			<th>저자</th>	
-			<th>작성시간</th>	
-		</tr>	
-    {% for post in posts %}
-        <!-- <div class="post">
-            <div class="date">
-                <p>published: {{ post.published_date }}</p>
-            </div>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div> -->
-        <tr>
-			<td>{{post.id}}</td>
-			<td><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></td>
-			<td>{{post.author}}</td>
-			<td>{{post.created_date}}</td>
-		</tr>	
-    {% endfor %}
-	</table>
+<div class="container" style="text-align: center" >
+    <div class="row center">	
+	    {% for post in posts %}
+	       		<div class="col-xl-3">	
+		        	<div class="card-body bb" style="background-color:#1530c6;">
+	                  <p class="card-text text-left timedev">{{post.created_date}}</p>
+	                  <h4 class="card-title tb">{{post.title}}</h4>
+	                  <p class="card-text ctb">{{post.author}}</p>
+	                </div>
+            	</div>
+			       	
+	        <!-- <tr>
+				<td>{{post.id}}</td>
+				<td><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></td>
+				<td>{{post.author}}</td>
+				<td>{{post.created_date}}</td>
+			</tr>	 -->
+	    {% endfor %}
+	</div>
+</div>
 {% endblock %}        
           

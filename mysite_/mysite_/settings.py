@@ -31,15 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
+    'tour',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
-    'tour',
-    'mysite_'
+    
 
 ]
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mysite_.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': '',
+        'DIRS': [ os.path.join(BASE_DIR, 'templates') ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -85,7 +86,8 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'PORT': '3306',
+        
        #  'ENGINE': 'mysql.connector.django',
 #          'NAME': 'nestyle23$database',
 #          'USER': 'nestyle23',
@@ -94,7 +96,7 @@ DATABASES = {
 #          'PORT': '3306'
     }
 }
-
+DATABASE_OPTIONS = {'charset': 'utf8'}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -137,4 +139,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 MEDIA_URL = '/files/' # 업로드 할 경로
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 

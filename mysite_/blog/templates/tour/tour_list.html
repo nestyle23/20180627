@@ -1,0 +1,22 @@
+
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="" style="text-align:center; background-color: black;margin :0px">
+    <div class="row center">	
+    {% for tour in tours %}
+		<div class="col-md-3" style="margin-bottom : 1.5rem;">
+			<div id = "_insta" style="background-color: {{tour.background_color}}">
+				<img src = "/files/{{tour.image}}"   alt="Random Name" width="255" height="255">
+	       		<div style="text-align: left; margin-left: 1.5rem"> 
+			       <p class="card-text" ><h5 style = "color: {{tour.font_color}}">{{tour.nation}} {{tour.tour}}</h5></p> 
+			       <p class="card-text" style = "color:{{tour.font_color}}">{{tour.comment}}</p>
+				</div>
+			</div>
+		</div>
+
+    {% endfor %}
+    </div>
+</div>  	
+{% endblock %}        
+          

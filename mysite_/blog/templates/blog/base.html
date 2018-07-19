@@ -10,7 +10,7 @@
 
     </head>
     <body> 
-        <div class="jumbotron text-center" id = "jumbotron" style="margin-bottom:0">
+        <div class="jumbotron text-center" id = "jumbotron" style="margin-bottom:0">           
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <h1><a href="/">정빈이블로그</a></h1>
             <!-- <div class= "div-nav">
@@ -32,7 +32,7 @@
                         <a class="nav-link" href="{% url 'post_list' %}">BLOG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">여행</a>
+                        <a class="nav-link" href="{% url 'tour_list' %}">여행</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">STUDY</a>
@@ -43,24 +43,8 @@
                 </ul>
             </div>  
         </nav>
-        <div class="container" style="margin-top:30px">
-            <div class="row">
-                <div class="col-lg-3">
-                    <a href="#demo" data-toggle="collapse">
-                        <img src="{% static 'img/이정빈.jpeg' %}" class="rounded-circle" alt="Random Name" width="255" height="255">
-                    </a>
-                    <div id="demo" class="collapse">
-                        <p>이정빈</p>
-                        <p>1992/12/25 </p>
-                        <p>안</p>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    {% block content %}
-                    {% endblock %}   
-                </div>
-            </div>
-        </div>  
+        {% block content %}
+        {% endblock %}      
         <div class="jumbotron text-center"  id = "jumbotron"  style="margin-bottom:0">
             <p>이정빈천재님의 블로그입니당</p>
         </div>
